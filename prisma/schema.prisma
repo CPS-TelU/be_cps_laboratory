@@ -1,0 +1,54 @@
+datasource db {
+  provider = "postgresql"  // Sesuaikan dengan provider database Anda
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  kodas    String @unique
+  password String
+}
+
+model Assistant {
+  id          Int      @id @default(autoincrement())
+  name        String
+  image       String  
+  instagram   String?  
+  linkedin   String?  
+  github      String?  
+  create_at   DateTime @default(now())
+  update_at   DateTime @updatedAt
+}
+
+model Blogs {
+  id         Int      @id @default(autoincrement())
+  author     String
+  title      String
+  description String?  
+  content    String?  
+  image_1    String?  
+  image_2    String?  
+  image_3    String?  
+  image_4    String?  
+  image_5    String?
+  image_6    String?
+  image_7    String?
+  image_8    String?
+  image_9    String?
+  image_0    String?  
+  create_at  DateTime @default(now())
+  update_at  DateTime @updatedAt
+}
+
+model Gallery {
+  id         Int      @id @default(autoincrement())
+  title      String
+  image      String?
+  description String?  
+  create_at  DateTime @default(now())
+  update_at  DateTime @updatedAt
+}
