@@ -1,4 +1,4 @@
-const galleryService = require("../service/galleryService");
+const galleryService = require("../service/galleryService.js");
 
 const createGallery = async (req, res) => {
   const { title, description } = req.body;
@@ -6,7 +6,7 @@ const createGallery = async (req, res) => {
     const gallery = await galleryService.createGallery(
       title,
       description,
-      req.files
+      req.file
     );
     res.status(201).json(gallery);
   } catch (error) {
@@ -24,7 +24,7 @@ const updateGallery = async (req, res) => {
       id,
       title,
       description,
-      req.files
+      req.file
     );
     res.status(200, "Updated gallery successfully").json(gallery);
   } catch (error) {
@@ -34,4 +34,15 @@ const updateGallery = async (req, res) => {
   }
 };
 
-module.exports = { createGallery, updateGallery };
+const getAllGallery = async (req, res) => {
+  try {
+    const gallery = await galleryService.getAllGallery();
+    res.status(200).json(gallery);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Failed to retrieve gallery", details: error.message });
+  }
+};
+
+module.exports = { createGallery, updateGallery, getAllGallery };

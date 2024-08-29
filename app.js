@@ -26,6 +26,6 @@ app.use(express.json());
 app.use("/auth", adminRoutes);
 app.use("/apiv1", blogRoutes);
 app.use("/apiv2", assistantRoutes);
-app.use("/apiv3", galleryRoutes);
+app.use("/api", galleryRoutes);
 
 module.exports = app;
