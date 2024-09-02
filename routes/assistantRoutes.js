@@ -8,8 +8,8 @@ const {
 const upload = require("../middleware/multer.js");
 const router = express.Router();
 
-router.post("/assistants", upload.single("image"), createAssistant);
+router.post("/assistant", upload.single("image"), createAssistant);
 router.put("/assistants/:id", upload.single("image"), updateAssistant);
 router.get("/assistants", getAllAssistants);
-router.get("/assistants/:id", findAssistantById);
+router.get("/assistant/:id", findAssistantById);
 module.exports = router;
