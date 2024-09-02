@@ -24,8 +24,8 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/auth", adminRoutes);
-app.use("/apiv1", blogRoutes);
-app.use("/apiv2", assistantRoutes);
+app.use("/api", blogRoutes);
+app.use("/api", assistantRoutes);
 app.use("/api", galleryRoutes);
 
 module.exports = app;
