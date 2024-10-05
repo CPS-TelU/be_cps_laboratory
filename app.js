@@ -17,7 +17,11 @@ app.use(
 );
 
 let corsOptions = {
-  origin: "https://cpslaboratory.com",
+  origin: [
+    "http://localhost:3000",
+    "https://www.cpslaboratory.com",
+    "https://cpslaboratory.com",
+  ],
 };
 
 app.use(cors(corsOptions));
