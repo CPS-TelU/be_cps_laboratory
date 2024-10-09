@@ -9,26 +9,36 @@ require("dotenv").config();
 
 const app = express();
 
+// Setup session middleware
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: process.env.NODE_ENV === "production" }, // Secure cookie hanya aktif di production
+    cookie: { secure: process.env.NODE_ENV === "production" }, // secure true only in production
   })
 );
 
+// CORS options to allow localhost and production domain
 let corsOptions = {
-  origin: ["http://localhost:3000", "https://www.cpslaboratory.com"],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  credentials: true, // Izinkan pengiriman cookie dan credentials
+  origin: [
+    "http://localhost:3000", // local development
+    "https://www.cpslaboratory.com", // production
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // allowed HTTP methods
+  credentials: true, // allow credentials like cookies or sessions
 };
 
+// Enable CORS for all routes
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // Handle preflight requests
 
+// Handle preflight requests (for methods like POST, DELETE, etc.)
+app.options("*", cors(corsOptions));
+
+// JSON body parsing middleware
 app.use(express.json());
 
+// Routes
 app.use("/auth", adminRoutes);
 app.use("/api", blogRoutes);
 app.use("/api", assistantRoutes);
