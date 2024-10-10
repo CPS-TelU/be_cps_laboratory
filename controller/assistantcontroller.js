@@ -1,6 +1,7 @@
 const assistantService = require("../service/assistantService.js");
 const createAssistant = async (req, res) => {
-  const { name, instagram, linkedin, github } = req.body;
+  const { name, instagram, linkedin, github, divisi, kode, role, major } =
+    req.body;
 
   try {
     const assistant = await assistantService.createAssistant(
@@ -8,6 +9,10 @@ const createAssistant = async (req, res) => {
       instagram,
       linkedin,
       github,
+      divisi,
+      kode,
+      role,
+      major,
       req.file
     );
     res.status(201).json(assistant);

@@ -11,6 +11,10 @@ CREATE TABLE "Admin" (
 CREATE TABLE "Assistant" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
+    "divisi" TEXT NOT NULL,
+    "kode" TEXT NOT NULL,
+    "role" TEXT NOT NULL,
+    "major" TEXT NOT NULL,
     "image" TEXT NOT NULL,
     "instagram" TEXT,
     "linkedin" TEXT,
