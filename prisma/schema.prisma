@@ -16,6 +16,7 @@ model Admin {
 model Assistant {
   id          Int      @id @default(autoincrement())
   name        String
+  divisi      String
   image       String  
   instagram   String?  
   linkedin   String?  
