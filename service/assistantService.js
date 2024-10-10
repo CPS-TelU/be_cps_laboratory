@@ -1,6 +1,16 @@
 const assistantRepository = require("../repository/assistantRepository.js");
 const imagekit = require("../libs/imagekit.js");
-const createAssistant = async (name, instagram, linkedin, github, file) => {
+const createAssistant = async (
+  name,
+  instagram,
+  linkedin,
+  github,
+  divisi,
+  kode,
+  role,
+  major,
+  file
+) => {
   let image = null;
 
   if (file) {
@@ -17,6 +27,10 @@ const createAssistant = async (name, instagram, linkedin, github, file) => {
     instagram,
     linkedin,
     github,
+    divisi,
+    kode,
+    role,
+    major,
     image,
   };
 

@@ -17,6 +17,9 @@ model Assistant {
   id          Int      @id @default(autoincrement())
   name        String
   divisi      String
+  kode        String
+  role        String
+  major       String
   image       String  
   instagram   String?  
   linkedin   String?  
